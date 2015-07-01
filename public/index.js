@@ -1,4 +1,5 @@
 var cards
+var counter = 0
 
 $(document).on("ready", function(){
 
@@ -8,7 +9,7 @@ $(document).on("ready", function(){
     "blue", "blue", 
     "green", "green", 
     "yellow", "yellow", 
-    "purple", "purple", 
+    "purple", "purple",  
     "orange", "orange",
     "gray", "gray",
     "black", "black"
@@ -22,6 +23,7 @@ $(document).on("ready", function(){
 
     // Instantiate a new card view
     var card = new Card({ 
+      className: "card",
       color: color 
     })
 
@@ -30,7 +32,12 @@ $(document).on("ready", function(){
 
     // Return it (from the map iterator)
     return card
-
+    
   })
+
+  eventDispatcher.on("card:clicked", function(view){
+    //view.$el.css("background", view.viewData.color)
+  })
+
 
 })
